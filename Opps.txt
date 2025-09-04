@@ -1,0 +1,807 @@
+// java Class and Objects :- Everything in java is associated with classes and objects, along with its attributes and methods. For example: in real life , a car is an object . The car has attributes, such as weight and color, and methods such as drive and brake
+
+
+Create a class named "Main" with a variable x:
+
+public class Main {
+   int x = 5;
+}
+
+Example:-
+
+Create an object called "myObj" and print the value of x:
+
+ public class Main {
+   int x = 5;
+ 
+
+ public static void main(String[] args){
+     Main myObj = new Main();
+     System.out.println(myObj.x);
+    }
+ }
+
+Example:- 
+Create two object of Main {
+   int x = 5;
+
+  public static void main(String[] args){
+    Main myObj1 = new Main();  // Object 1
+    Main myObj2 = new Main();  // Object 2
+    System.out.println(myObj1.x);
+    System.out.println(myObj2.x);
+   }
+}
+
+
+Java Class Attributes :- In the previous chapter, we used the term 'variable' for x in the example (as shown below). It is actually an attribute of the class. or you could say that class attributes are variables with in a class:
+
+Example 
+
+Create a class called "Main" with two attrubutes: x and y;
+
+public class Main {
+    int x = 5;
+    int y = 3;
+}
+
+Accessing Attributes
+
+Example:
+
+Create an object called "myObj" and print the value of x:
+
+public class Main {
+   int x = 5;
+  public static void main(String[] args){
+       Main myObj = new Main();
+       System.out.println(myObj.x);
+  }
+}
+
+Modify Attributes
+
+Example:-
+Set the value x to 40:
+
+public class Main{
+    int x;
+    public static void main(String[] args){
+       Main myObj = new Main();
+       myObj.x = 40;
+       Syso(myObj.x);
+    }
+}
+
+Example:-
+Set the Value of x to 25:
+
+public class Main {
+   int x = 10;
+  
+  public static void main(String[] args){
+   Main myObj = new Main();
+   myObj.x = 25; // x is now 25
+   System.out.println(myObj.x);
+  }
+}
+
+
+If you don,t want the ability to override existing values, declare the attribute as final:
+
+public class Main{
+   final int x = 10;
+
+   public static void main(String[] args){
+     Main myObj = new Main();
+     myObj.x = 25; // will generate an error: assign a value to a final variable
+     Syso(myObj.x)
+   }
+}
+
+Multiple Objects
+
+Example:- Change the value of x to 25 in myObj2, and leave x in myObj1 unchanged:
+
+ public class Main{
+   int x = 5;
+
+   public static void main(String[] args){
+     Main myObj1 = new Main();  // Object 1
+     Main myObj2 = new Main();  // Object 2
+
+     myObj2.x = 25;
+     Syso(myObj1.x); // Outputs 5
+     Syso(myObj2.x); // Outputs 25
+    }
+ }
+
+Multiple Attributes
+
+public class Main{
+   String fname = "John";
+   String lname = "Doe";
+   int age = 24;
+
+public static void main(String[] args){
+   Main myObj = new Main();
+   Syso("Name: " + myObj.fname + "" + myObj.lname);
+   Syso("Age: " + myObj.age);
+   }
+}
+
+Java Class Methods 
+
+public class Main{
+ static void myMethod(){
+       Syso("Hello World!");
+    }
+}
+
+Example :-
+
+Inside main, call myMethod();
+
+public class Main{
+   static void myMethod(){
+   Syso("Hello World!");
+  }
+  public static void main(String[] args){
+   myMethod();
+  }
+}
+
+// Outputs "Hello World!"
+
+Static vs Public 
+
+Example:- 
+An example to demonstrate the differences between static and public methods:
+
+public class Main{
+   // Static method
+   static void myStatucMethod(){
+   Syso("Static method can be called by without creating objects");
+  }
+
+   // Public method
+   public void myPublicMethod(){
+   Syso("Public methods must be called by creating objects");
+   }
+
+   // Main method
+   public static void main(String[] args){
+   myStaticMethod(); // Call the static method
+   // myPublicMethod(); This would compile an error
+
+   Main myObj = new Main(); // Create an object of Main
+   myObj.myPublicMethod(); // Call the public method on the object
+   }
+}
+
+Access Methods With an Object
+
+Example:-
+Create a Car object named myCar . Call the fullThrottle() and speed() methods on the myCar object, and run the program:
+
+// Create a Main class
+public class Main{
+
+    // Create a fullThrottle() method
+    public void fullThrottle(){
+      Syso("The car is going as fast as it can!");
+   }
+   // Create a speed() method and add a parameter
+   public void speed(int maxSpeed) {
+      Syso("Max speed is:" + maxspeed);
+  }
+
+  // Inside main, call the methods on the myCar object
+   public static void main(String[] args){
+      Main myCar = new Main(); // Create a myCar object
+      myCar.fullThrottle();  // Call the fullThrottle() Method
+      myCar.speed(200);      // Call the speed() method
+   }
+}
+
+// The car is going as fast as it can!
+// Max speed is: 200
+
+
+Java Constructors :- A constructor in Java is a special method that is used to initialize object
+
+// Create a Main class
+
+public class Main {
+   int x ; // Create a class attribute
+
+   // Create a class constructor for the Main class
+   public Main() {
+    x = 5; // Set the initial value for the class attribute x
+
+   }
+   public static void main(String[] args){
+   Main myObj = new Main(); // Create an object of class Main (This will call the constructor)
+   Syso(myObj.x)
+   }
+}
+
+Constructor Parameters
+
+Example :-
+
+public class Main{
+   int x;
+}
+
+public Main(int y){
+   x = y;
+}
+
+public static void main(String[] args){
+    Main myObj = new Main(5);
+    Syso(myObj.x);
+  }
+}
+
+Example :- 
+
+public class Main {
+  int modelYear;
+  String modelName;
+ 
+ public Main(int year, String name){
+    modelYear = year;
+    modelYear = name;
+  }
+  public static void main(String[] args){
+   Main myCar = new Main("1968", "Mustang");
+   Syso(myCar.modelYear + " " + myCar.modelName);
+  }
+}
+
+Java this keyword
+
+The this keyword in java refers to the current object in a method constructor.
+The this keyword is often used to avoid confusion when class attributes have the same name as method or constructor parameters
+
+Accessing Class Attributes
+
+public class Main {
+   int x; // Class variable x
+}
+// Constructor with one parameter x
+public Main(int x){
+  this.x = x; // refers to the class variale x
+}
+
+public static void main(String[] args){
+  // Create an object of Main and pass the value 5 to the constructor
+  Main myObj = new Main(5);
+  Syso("Value of x = " + myObj.x);
+   }
+}
+
+Calling a Constructor from Anther Constructor
+
+public class Main {
+   int modelYear;
+   String modelName;
+
+   // Constructor with one parameter
+   public Main(String modelName){
+     // Call the two-parameter constructor to reuse code and set a default year
+     this(2020, modelName);
+   }
+
+   // Constructor with two parameters
+   public Main(int modelYear, String modelName){
+    // Use 'this' to assign values to the class variables
+    this.modelYear = modelYear;
+    this.modelName = modelName;
+   }
+
+ // Method to print car information]
+ public void printInfo(){
+  Syso(modelName + "" + modelYear)
+   }
+    public static void main(String[] args){
+ // Create a car with only model name (user default year)
+    Main car1 = new Main("Corvette");
+
+// Create a car with both model year and name
+    Main car2 = new Main(1969, "Mustang");
+
+  car1.printInfo();
+  car2.printInfo();
+  }
+}
+
+Modifiers
+
+Public 
+Private
+Default
+Protected
+
+class Person {
+   public String name = 'John';    // Public - accessible everywhere
+   private int age = 30;           // Private - only accessible inside this class
+}
+
+public class Main {
+   public static void main(String[] args){
+     Person p = new Person();
+     System.out.println(p.name); // Works fine
+     System.out.println(p.age);  // Error: age has private access in Person
+   }
+}
+
+Encapsulation
+
+The meaning of Encapsulation, is to Make sure that "sensitive" data is hidden from users. To achieve this, you must:
+
+> declare class variables/attributes as private
+> provide public get and get methods to access and update the value of a private variable
+
+public class Person {
+   private String name; // private = restricted access
+
+   // Getter
+   public String getName() {
+     return name;
+   }
+
+   // Setter
+   public void setName(String newName){
+      this.name = newName;
+   }
+}
+
+
+However, as the name variable is declared as private, we cannot access it from outside this class:
+
+public class Main {
+   public static void main(String[] args){
+    Persin myObj = new Person();
+    myObj.name = "John";  // error
+    System.out.println(myObj.name);  // error
+   }
+}
+
+Instead, we use the getName() and setName() methods to access and update the variable;
+
+public class Main {
+   public static void main(String[] args){
+    Person myObj = new Person();
+    myObj.setName("John"); // Set the value of the name variable to "John"
+    System.out.println(myObj.getName());
+   }
+}
+
+// Outputs "John"
+
+Java Packages & API
+
+A package in java is used to group related classes. Think of it as a folder in a file directory. We use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories:
+
+> Built-in Packages(Packages from the java API)
+> User-defined Packages(create your own packages)
+
+Syntax
+
+import package.name.Class; // Import s single class
+import package.name.*;     // Import the whole package
+
+The Scanner class, which is used to get user input, write the following code:
+
+Example
+
+import java.util.Scanner;
+
+Example:-
+
+Using the Scanner class to get user input:
+
+import java.util.Scanner;
+
+class Main {
+   public static void main(String[] args){
+     Scanner myObj = new Scanner(System.in);
+     Syso("Enter username");
+
+     String username = myObj.nextLine();
+     System.out.println("Username is: " + userName);
+  }
+}
+
+Example:-
+
+import java.util.*;
+
+MyPackageClass.java
+
+package mypack;
+class MyPackageClass {
+   public static void main(String[] args){
+   Syso("This is my package!");
+  }
+}
+
+Java Inheritance (Subclass and Superclass)
+
+In java, it is possible to inherit attributes and methods from one class to another . We group the "inheritance concept" into two categories:
+
+> Subclass(child)- the class that inherits from another class
+> Superclass(parent)- the class being inherited from
+
+Example:-
+
+class Vehicle {
+   protected String brand = 'Ford';  // Vehicle attribute
+   public void honk() {              // Vehicle method
+      Syso("Tuut, tuut!"); 
+   }
+    class Car extends Vehicle {
+      private String modelName = "Mustang"; // Car attribute
+      public static void main(String[] args){
+
+      // Create a myCar object
+      Car myCar = new Car();
+
+      // Call the hook() method (from the vehicle class) on the myCar object
+      myCar.honk();
+ 
+      // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+      Syso(myCar.brand + " " + myCar.modelName);
+   }
+}
+
+
+final class Vehicle {
+....
+}
+
+class Car extends Vehicle {
+....
+}
+
+Java Polymorphism
+
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class . Polymorphism uses those
+methods to perform different tasks. this allows us to perform a single action in different ways.
+
+Example :-
+
+class Animal {
+   public void animalSound() {
+     Syso("The animal makes a sound");
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+      Syso("The pig says: wee wee");
+  }
+}
+
+class Dog extends Animal {
+   public void animalSound() {
+       Syso("The dog says: bow wow");
+   }
+}
+
+ Now we can create Pig and Dog objects and call the animalSound() method on both of them:
+
+ class Animal {
+     public void animalSound() {
+        Syso("The animal makes a sound");
+     }
+ }
+
+class Pig extends Animal {
+    public void animalSound() {
+       Syso("This pig says: wee wee");
+    }
+}
+
+class Dog extends Animal {
+    public void animalSound() {
+      Syso("The dog says: bow wow");
+   }
+}
+
+class Main {
+   public static void main (String[] args){
+     Animal myAnimal = new Animal(); // Create a Animal object
+     Animal myPig = new pig();  // Create a Pig object
+     Animal myDog = new Dog();  // Create a Dog object
+     myAnimal.animalSound();
+     myPig.animalSound();
+     myDog.animalSound();
+  }
+}
+
+Java super Keyword
+
+class Animal {
+   public void animalSound() {
+       Syso("The animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+   public void animalSound(){
+     super.animalSound(); // Call the parent method
+     Syso("The dog says: bow wow");
+    }
+}
+
+public class Main {
+   public static void main(String[] args) {
+      Dog myDog = new Dog();
+      myDog.animalSound();
+   }
+}
+
+Access Parent Attributes
+
+You can also use super to access an attribute from the parent class if they have an attribute with the same name:
+
+class Animal {
+   Animal(){
+     Syso("Animal is created");
+   }
+}
+
+class Dog extends Animal {
+   Dog() {
+     super(); // Call parent constrictor
+     Syso("dog is Created");
+    }
+}
+
+public class Main {
+  public static void main(String[] args){
+     Dog mydog = new Dog();
+   }
+}
+
+Java Inner Classes
+In java, it is also possible to nest classes (a class within a class). The purpose of nested classes is to group classes
+class OuterClass {
+    int x = 10;
+
+    class InnerClass {
+       int y = 5;
+    }
+}
+
+public class Main {
+   public static void main(String[] args){
+      OuterClass myOuter = new OuterClass();
+      OuterClass.InnerClass myInner = myOuter.new InnerClass();
+      System.out.println(myInner.y + myOuter.x);
+   }
+}
+
+// Outputs 15 (5 + 10)
+
+class OuterClass {
+   int x = 10;
+
+   private class InnerClass {
+   int y = 5;
+   }
+}
+
+public class Main {
+    public static void main(String[] args) {
+      OuterClass myOuter = new OuterClass();
+      OuterClass.InnerClass myInner = myOuter.new InnerClass();
+      Syso(myInner.y + myOuter.x);
+    }
+ }
+
+// Outputs 15 (5 + 10)
+
+
+Private Inner Class
+
+Unlike a "regular" class, an inner class can be private or protected. if you don't want outside objects to access the inner class, declare the class as private
+
+Example
+
+class OuterClass {
+    int x = 10;
+}
+
+private class InnerClass {
+    int y = 5;
+   }
+}
+
+public class Main {
+    public static void main(String[] args) {
+     OuterClass myOuter = new OuterClass();
+     OuterClass.InnerClass myInner = myOuter.new InnerClass();
+     System.out.println(myInner.y + myOuter.x);
+   }
+}
+
+Static Inner Class
+
+An inner class can also be static, which means that you can access it without Creating an object of the outer class:
+
+class OuterClass {
+    int x = 10;
+
+    static class InnerClass{
+    int y = 5;
+   }
+}
+
+public class Main {
+   public static void main(String[] args) {
+    OuterClass.InnerClass myInner = new OuterClass.InnerClass();
+    Syso(myInner.y);
+   }
+}
+
+// Outputs 5
+
+Access Outer Class From Inner Class
+One advantage of inner classes, is that they can access attributes and methods of the outer class :
+
+class OuterClass {
+    int x = 10;
+
+    class InnerClass {
+      public int myInnerMethod() {
+         return x;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+      OuterClass myOuter = new OuterClass();
+      OuterClass.InnerClass myInner = myOuter.new InnerClass();
+      Syso(myInner.myInnerMethod());
+   }
+}
+
+// Outputs 10
+
+Java Abstraction
+
+Abstract Classes and Methods
+
+Data abstraction is the process of hiding certain details and showing only essential information to the user.
+
+The abstract keyword is a non-access modifier used for classes and methods
+
+> Abstract class : is a restricted class that cannot be used to create object (to access it, it must be inherited from another class).
+> Abstract method : can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+abstract class Animal {
+    public abstract void animalSound();
+    public void sleep() {
+        Syso('Zzz');
+    }
+}
+
+From the example above, it is not possible to create an object of the Animal class
+
+Animal myObj = new Animal(); // will generate an error
+
+// Abstract class
+abstract class Animal {
+  // Abstract method (does not have a body)
+  public abstract void animalSound();
+  // Regular method
+  public void sleep() {
+            Syso("Zzz");
+  }
+}
+
+// Subclass (inherit from Animal)
+class Pig extends Animal {
+   public void animalSound() {
+    // The body of animalSound() is provided here
+    Syso("The pig says: wee wee");
+   }
+}
+
+class Main {
+  public static void main(String[] args) {
+   Pig myPig = new Pig(); // Create a Pig object
+   myPig.animalSound();
+   myPig.sleep();
+  }
+}
+
+
+// Interface 
+An interface is a completely "abstract class" that is used to group related methods with empty bodies: 
+
+interface Animal {
+   public void animalSound(); // interface method (does not have a body)
+   public void sleep(); // interface method (does not have a body)
+}
+
+// pig "implements" the Animal interface
+class Pig implements Animal {
+    public void animalSound() {
+      // The body of animalSound() is provided here
+      Syso("The pig says: wee wee");
+    }
+    public void sleep() {
+    // The body of sleep() is provided here
+    Syso("Zzz");
+   }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Pig myPig = new Pig(); // Create a Pig object
+    myPig.animalSound();
+    myPig.sleep();
+  }
+}
+
+Multiple Interface
+
+To Implement multiple interfaces, separate them with a comma
+
+interface FirstInterface {
+   public void myMethod(); // interface method
+}
+
+interface SecondInterface {
+   public void myOtherMethod(); // interface method
+}
+
+class DemoClass implements FirstInterface, SecondInterface {
+    public void myMethod() {
+       Syso("Some text...");
+    }
+    public void myOtherMethod() {
+       Syso("Some other text...");
+    }
+}
+
+class Main {
+   public static void main(String[] args){
+    DemoClass myObj = new DemoClass();
+    myObj.myMethod();
+    myObj.myOtherMethod();
+   }
+}
+
+Enums 
+An Enum is a special "class" that represents a group of constants (unchangeable variables, like final variables).
+To create an Enum, use the Enum keyword (instead of class or interface), and separate the constants with a comma .
+
+Example:-
+
+Enum Level {
+  Low,
+  MEDIUM,
+  HIGH
+}
+
+Input Types: - The Scanner class is used to get user input, and it is found in the java.util package.
+To use the Scanner class, create an object of the class and use any of the available methods found in the Scanner class documentation.
+In our example, we will use the nextLine() method, which is used to read Strings
+
+Method          Description
+nextBoolean()   Reads a Boolean value from the user
+nextByte()      Reads a byte value from the user
+nextDouble()    Reads a double value from the user
+nextFloat()     Reads a float value from the user
+nextInt()       Reads a int value from the user
+nextLine()      Reads a String value from the user
+nextLong()      Reads a long value from the user
+nextShort()     Reads a short value from the user
